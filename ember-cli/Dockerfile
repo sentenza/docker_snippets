@@ -60,7 +60,7 @@ RUN \
 
 # Install ember-cli
 RUN \
-	yarn global add ember-cli@2.16.2
+	yarn global add ember-cli@3.1.2
 
 RUN \
 	yarn global add firebase-tools
