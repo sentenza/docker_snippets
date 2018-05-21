@@ -2,7 +2,7 @@ FROM docker:latest
 ENV LANG C.UTF-8
 
 ENV SCALA_VERSION 2.12.4
-ENV SBT_VERSION 1.0.2
+ENV SBT_VERSION 1.1.4
 
 # add a simple script that can auto-detect the appropriate JAVA_HOME value
 # based on whether the JDK or only the JRE is installed
@@ -33,12 +33,14 @@ RUN apk add --update \
     postgresql-dev \
     curl \
     bash \
+		jq \
   && rm -rf /var/cache/apk/*
 
 
 WORKDIR /root
 
 RUN \
+	pip install awscli && \
   curl -fsL https://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
   echo >> /root/.bashrc && \
   echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
