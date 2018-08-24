@@ -67,5 +67,10 @@ RUN \
 RUN \
 	apt-get update &&\
 	apt-get install -y \
-		awscli \
 		jq
+
+RUN \
+	curl https://bootstrap.pypa.io/get-pip.py | python
+
+RUN \
+	pip install awscli
