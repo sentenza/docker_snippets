@@ -1,5 +1,4 @@
 FROM node:6.11.3
-MAINTAINER Dan Lynn <docker@danlynn.org>
 
 # ember server on port 4200
 # livereload server on port 49153 (changed in v2.11.1 from 49152)
@@ -64,3 +63,9 @@ RUN \
 
 RUN \
 	yarn global add firebase-tools
+
+RUN \
+	apt-get update &&\
+	apt-get install -y \
+		awscli \
+		jq
