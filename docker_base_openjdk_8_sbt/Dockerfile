@@ -1,8 +1,8 @@
 FROM docker:latest
 ENV LANG C.UTF-8
 
-ENV SCALA_VERSION 2.12.4
-ENV SBT_VERSION 1.1.4
+ENV SCALA_VERSION 2.12.6
+ENV SBT_VERSION 1.1.6
 
 # add a simple script that can auto-detect the appropriate JAVA_HOME value
 # based on whether the JDK or only the JRE is installed
@@ -33,7 +33,7 @@ RUN apk add --update \
     postgresql-dev \
     curl \
     bash \
-		jq \
+    jq \
   && rm -rf /var/cache/apk/*
 
 
