@@ -1,8 +1,8 @@
 FROM docker:latest
 ENV LANG C.UTF-8
 
-ENV SCALA_VERSION 2.12.6
-ENV SBT_VERSION 1.1.6
+ENV SCALA_VERSION 2.12.7
+ENV SBT_VERSION 1.2.7
 
 # add a simple script that can auto-detect the appropriate JAVA_HOME value
 # based on whether the JDK or only the JRE is installed
@@ -16,8 +16,8 @@ RUN { \
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
 
-ENV JAVA_VERSION 8u151
-ENV JAVA_ALPINE_VERSION 8.171.11-r0
+ENV JAVA_VERSION 8u181
+ENV JAVA_ALPINE_VERSION 8.181.13-r0
 
 RUN set -x \
 	&& apk add --no-cache \
@@ -40,7 +40,7 @@ RUN apk add --update \
 WORKDIR /root
 
 RUN \
-	pip install awscli && \
+  pip install awscli && \
   curl -fsL https://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
   echo >> /root/.bashrc && \
   echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
