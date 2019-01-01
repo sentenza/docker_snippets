@@ -4,18 +4,16 @@ ENV LANG C.UTF-8
 ENV SCALA_VERSION 2.12.8
 ENV SBT_VERSION 1.2.7
 
-RUN apk add --update \
-    python \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python-setuptools \
     python-dev \
-    py-pip \
-    build-base \
+    python-pip \
+    libpython-dev \
     postgresql-client \
-    postgresql-dev \
     curl \
     bash \
     jq \
-  && rm -rf /var/cache/apk/*
-
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
 
