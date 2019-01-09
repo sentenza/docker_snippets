@@ -1,19 +1,33 @@
-FROM openjdk:11.0.1-jdk
+FROM docker:latest
 ENV LANG C.UTF-8
 
 ENV SCALA_VERSION 2.12.8
 ENV SBT_VERSION 1.2.8
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python-setuptools \
+RUN apk add --update \
+    python \
     python-dev \
-    python-pip \
-    libpython-dev \
+    py-pip \
+    build-base \
     postgresql-client \
+    postgresql-dev \
     curl \
     bash \
     jq \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/cache/apk/*
+
+RUN ZULU_ARCH=zulu11.2.3-jdk11.0.1-linux_musl_x64.tar.gz && \
+    INSTALL_DIR=/usr/lib/jvm && \
+	BIN_DIR=/usr/bin && \
+	MAN_DIR=/usr/share/man/man1 && \
+	ZULU_DIR=$( basename ${ZULU_ARCH} .tar.gz ) && \
+	wget -q https://cdn.azul.com/zulu/bin/${ZULU_ARCH} && \
+	mkdir -p ${INSTALL_DIR} && \
+	tar -xf ./${ZULU_ARCH} -C ${INSTALL_DIR} && rm -f ${ZULU_ARCH} && \
+	cd ${BIN_DIR} && find ${INSTALL_DIR}/${ZULU_DIR}/bin -type f -perm -a=x -exec ln -s {} . \; && \
+	mkdir -p ${MAN_DIR} && \
+	cd ${MAN_DIR} && find ${INSTALL_DIR}/${ZULU_DIR}/man/man1 -type f -name "*.1" -exec ln -s {} . \; && \
+	java -version
 
 WORKDIR /root
 
