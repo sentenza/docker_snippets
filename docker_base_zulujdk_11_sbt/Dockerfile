@@ -2,7 +2,7 @@ FROM openjdk:11.0.1-jdk
 ENV LANG C.UTF-8
 
 ENV SCALA_VERSION 2.12.8
-ENV SBT_VERSION 1.2.7
+ENV SBT_VERSION 1.2.8
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python-setuptools \
@@ -24,7 +24,9 @@ RUN \
   echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
 
 RUN \
-  curl -L -o sbt-$SBT_VERSION.tgz https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz && tar -zxf sbt-$SBT_VERSION.tgz && \
+  curl -L -o sbt-$SBT_VERSION.tgz https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz && \
+  tar -zxf sbt-$SBT_VERSION.tgz && \
   echo >> /root/.bashrc && echo 'export PATH=/root/sbt/bin:$PATH' >> /root/.bashrc
 
-RUN ./sbt/bin/sbt sbtVersion
+COPY build.sbt .
+RUN ./sbt/bin/sbt sbtVersion compile && rm build.sbt
