@@ -28,7 +28,8 @@ RUN \
 
 # Install ember dev dependencies
 RUN \
-	npm install -g bower@1.8.0
+	npm install -g bower@1.8.0 \
+	npm i -g npm 
 
 # install official phantomjs binaries
 RUN \
@@ -59,7 +60,7 @@ RUN \
 
 # Install ember-cli
 RUN \
-	yarn global add ember-cli@3.1.2
+	yarn global add ember-cli@3.7.1
 
 RUN \
 	yarn global add firebase-tools

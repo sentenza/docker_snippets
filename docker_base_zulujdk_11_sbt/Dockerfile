@@ -14,6 +14,7 @@ RUN apk add --update \
     curl \
     bash \
     jq \
+    openssl \
   && rm -rf /var/cache/apk/*
 
 RUN ZULU_ARCH=zulu11.29.11-ca-jdk11.0.2-linux_musl_x64.tar.gz && \
