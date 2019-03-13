@@ -16,7 +16,7 @@ RUN apk add --update \
     jq \
   && rm -rf /var/cache/apk/*
 
-RUN ZULU_ARCH=zulu11.2.3-jdk11.0.1-linux_musl_x64.tar.gz && \
+RUN ZULU_ARCH=zulu11.29.11-ca-jdk11.0.2-linux_musl_x64.tar.gz && \
     INSTALL_DIR=/usr/lib/jvm && \
 	BIN_DIR=/usr/bin && \
 	MAN_DIR=/usr/share/man/man1 && \
