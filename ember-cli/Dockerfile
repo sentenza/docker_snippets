@@ -1,4 +1,4 @@
-FROM node:8.15.1
+FROM node:10.16.0
 
 # ember server on port 4200
 # livereload server on port 49153 (changed in v2.11.1 from 49152)
@@ -60,7 +60,7 @@ RUN \
 
 # Install ember-cli
 RUN \
-	yarn global add ember-cli@3.7.1
+	yarn global add ember-cli@3.10.1
 
 RUN \
 	yarn global add firebase-tools
