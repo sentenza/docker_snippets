@@ -1,4 +1,4 @@
-FROM node:6.11.3
+FROM node:10.16.0
 
 # ember server on port 4200
 # livereload server on port 49153 (changed in v2.11.1 from 49152)
@@ -28,7 +28,8 @@ RUN \
 
 # Install ember dev dependencies
 RUN \
-	npm install -g bower@1.8.0
+	npm install -g bower@1.8.0 \
+	npm i -g npm 
 
 # install official phantomjs binaries
 RUN \
@@ -59,7 +60,7 @@ RUN \
 
 # Install ember-cli
 RUN \
-	yarn global add ember-cli@3.1.2
+	yarn global add ember-cli@3.10.1
 
 RUN \
 	yarn global add firebase-tools
