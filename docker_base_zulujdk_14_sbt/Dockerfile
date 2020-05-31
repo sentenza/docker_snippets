@@ -1,8 +1,8 @@
 FROM docker:latest
-ENV LANG C.UTF-8
+ENV LANG C.UTF-8 
 
 ENV SCALA_VERSION 2.13.2
-ENV SBT_VERSION 1.3.11
+ENV SBT_VERSION 1.3.12
 
 RUN apk add --update \
     python \
@@ -12,6 +12,7 @@ RUN apk add --update \
     postgresql-client \
     postgresql-dev \
     curl \
+    wget \
     bash \
     jq \
     openssl \
@@ -34,7 +35,8 @@ WORKDIR /root
 
 RUN \
   pip install awscli && \
-  curl -fsL https://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ && \
+  wget "https://downloads.typesafe.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz" && \
+  tar -zxf "scala-${SCALA_VERSION}.tgz" && \
   echo >> /root/.bashrc && \
   echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
 
