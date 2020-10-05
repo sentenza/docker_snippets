@@ -5,9 +5,9 @@ ENV SCALA_VERSION 2.13.3
 ENV SBT_VERSION 1.4.0
 
 RUN apk add --update \
-    python \
-    python-dev \
-    py-pip \
+    python3 \
+    python3-dev \
+    py3-pip \
     build-base \
     postgresql-client \
     postgresql-dev \
