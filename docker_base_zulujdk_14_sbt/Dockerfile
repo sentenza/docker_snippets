@@ -2,7 +2,7 @@ FROM docker:latest
 ENV LANG C.UTF-8 
 
 ENV SCALA_VERSION 2.13.3
-ENV SBT_VERSION 1.3.13
+ENV SBT_VERSION 1.4.0
 
 RUN apk add --update \
     python \
@@ -41,7 +41,7 @@ RUN \
   echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
 
 RUN \
-  wget https://piccolo.link/sbt-$SBT_VERSION.tgz && \
+  wget https://github.com/sbt/sbt/releases/download/v1.4.0/sbt-$SBT_VERSION.tgz && \
   tar -zxf sbt-$SBT_VERSION.tgz && \
   echo >> /root/.bashrc && echo 'export PATH=/root/sbt/bin:$PATH' >> /root/.bashrc
 
