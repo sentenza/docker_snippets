@@ -41,7 +41,7 @@ RUN \
   echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
 
 RUN \
-  wget https://github.com/sbt/sbt/releases/download/v1.4.0/sbt-$SBT_VERSION.tgz && \
+  wget https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz && \
   tar -zxf sbt-$SBT_VERSION.tgz && \
   echo >> /root/.bashrc && echo 'export PATH=/root/sbt/bin:$PATH' >> /root/.bashrc
 
