@@ -1,3 +1,3 @@
 # docker_base_zulujdk_11_sbt
 
-zulu openjdk 11.0.9, scala 2.13.4 and sbt 1.4.5
+zulu openjdk 11.0.9, scala 2.13.4 and sbt 1.4.6
