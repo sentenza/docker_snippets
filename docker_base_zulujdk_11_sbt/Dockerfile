@@ -18,7 +18,7 @@ RUN apk add --update \
     openssl \
   && rm -rf /var/cache/apk/*
 
-RUN ZULU_ARCH=zulu11.43.55-ca-jdk11.0.9.1-linux_musl_x64.tar.gz && \
+RUN ZULU_ARCH=zulu11.45.27-ca-jdk11.0.10-linux_musl_x64.tar.gz && \
     INSTALL_DIR=/usr/lib/jvm && \
 	BIN_DIR=/usr/bin && \
 	MAN_DIR=/usr/share/man/man1 && \
