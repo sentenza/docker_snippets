@@ -55,9 +55,6 @@ RUN apt-get update &&\
 RUN \
 	sed -i 's/"$@"/--no-sandbox "$@"/g' /opt/google/chrome/google-chrome
 
-RUN \
-	curl -o- -L https://yarnpkg.com/install.sh | bash
-
 # Install ember-cli
 RUN \
 	yarn global add ember-cli@3.10.1
