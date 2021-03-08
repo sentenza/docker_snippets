@@ -11,7 +11,7 @@ CMD ["ember", "server"]
 # Install watchman build dependencies
 RUN \
 	apt-get update -y &&\
-	apt-get install -y python-dev
+	apt-get install -y python-dev python-pip
 
 # install watchman
 # Note: See the README.md to find out how to increase the
@@ -28,7 +28,7 @@ RUN \
 
 # Install ember dev dependencies
 RUN \
-	npm install -g bower@1.8.0 \
+	npm install -g bower@1.8.8 \
 	npm i -g npm 
 
 # install official phantomjs binaries
@@ -69,9 +69,6 @@ RUN \
 	apt-get update &&\
 	apt-get install -y \
 		jq
-
-RUN \
-	curl https://bootstrap.pypa.io/get-pip.py | python
 
 RUN \
 	pip install awscli
