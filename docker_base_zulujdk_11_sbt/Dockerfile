@@ -2,7 +2,7 @@ FROM docker:latest
 ENV LANG C.UTF-8
 
 ENV SCALA_VERSION 2.13.5
-ENV SBT_VERSION 1.5.1
+ENV SBT_VERSION 1.5.2
 
 RUN apk add --update \
     python3 \
