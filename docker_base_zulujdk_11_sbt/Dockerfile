@@ -1,7 +1,7 @@
 FROM docker:latest
 ENV LANG C.UTF-8
 
-ENV SCALA_VERSION 2.13.6
+ENV SCALA_VERSION 2.13.7
 ENV SBT_VERSION 1.5.5
 
 RUN apk add --update \
@@ -16,6 +16,7 @@ RUN apk add --update \
     bash \
     jq \
     openssl \
+    protoc \
   && rm -rf /var/cache/apk/*
 
 RUN ZULU_ARCH=zulu11.50.19-ca-jdk11.0.12-linux_musl_x64.tar.gz && \
