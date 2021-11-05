@@ -16,6 +16,7 @@ RUN apk add --update \
     bash \
     jq \
     openssl \
+    libc6-compat \
     protoc \
   && rm -rf /var/cache/apk/*
 
