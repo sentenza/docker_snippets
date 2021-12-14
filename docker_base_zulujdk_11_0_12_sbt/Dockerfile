@@ -2,7 +2,7 @@ FROM docker:latest
 ENV LANG C.UTF-8
 
 ENV SCALA_VERSION 2.13.7
-ENV SBT_VERSION 1.5.5
+ENV SBT_VERSION 1.5.6
 
 RUN apk add --update \
     python3 \
@@ -16,6 +16,8 @@ RUN apk add --update \
     bash \
     jq \
     openssl \
+    libc6-compat \
+    gcompat \
     protoc \
   && rm -rf /var/cache/apk/*
 
@@ -47,4 +49,5 @@ RUN \
   echo >> /root/.bashrc && echo 'export PATH=/root/sbt/bin:$PATH' >> /root/.bashrc
 
 COPY build.sbt .
+#ADD schedule-grpc.tar.gz /root/sailing_schedule
 RUN ./sbt/bin/sbt sbtVersion compile && rm build.sbt
