@@ -1,6 +1,6 @@
 # docker_base_zulujdk_11_sbt
 
-zulu openjdk 11.0.12, scala 2.13.7 and sbt 1.5.6
+zulu openjdk 11.0.12, scala 2.13.7 and sbt 1.6.1
 
 ## Versions
 
@@ -16,8 +16,8 @@ libprotoc 3.15.7
 ## Build and run the image
 
 ```
-docker build -t "docker_base_zulujdk_11_sbt:jdk11.0.12_sbt1.5.6" .
-docker run --entrypoint sh -it docker_base_zulujdk_11_sbt:jdk11.0.12_sbt1.5.6
+docker build -t "docker_base_zulujdk_11_sbt:jdk11.0.12_sbt1.6.1" .
+docker run --entrypoint sh -it docker_base_zulujdk_11_sbt:jdk11.0.12_sbt1.6.1
 ```
 
 ## Test the image locally against an actual sbt project
@@ -39,7 +39,7 @@ RUN ./sbt/bin/sbt sbtVersion compile && rm build.sbt
 Run the container and then compile the project
 
 ```
-docker run --entrypoint bash -it docker_base_zulujdk_11_sbt:jdk11.0.12_sbt1.5.6
+docker run --entrypoint bash -it docker_base_zulujdk_11_sbt:jdk11.0.12_sbt1.6.1
 ```
 
 
