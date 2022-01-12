@@ -11,6 +11,7 @@ RUN \
     apt-get -qq update && \
     apt-get install -yqq \
     wget  \
+    curl \
     protobuf-compiler  \
     python3  \
     python3-pip \
