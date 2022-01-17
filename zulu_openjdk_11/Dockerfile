@@ -17,7 +17,8 @@ RUN \
     python3-pip \
     jq \
     postgresql-client \
-    openssl
+    openssl \
+    docker.io
 
 RUN \
   pip install awscli && \
