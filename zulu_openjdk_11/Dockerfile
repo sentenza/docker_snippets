@@ -1,7 +1,7 @@
 FROM azul/zulu-openjdk:11
 
 ENV SCALA_VERSION 2.13.8
-ENV SBT_VERSION 1.6.1
+ENV SBT_VERSION 1.6.2
 
 WORKDIR /root
 

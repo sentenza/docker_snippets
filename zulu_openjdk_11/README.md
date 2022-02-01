@@ -1,6 +1,6 @@
 # Zulu Openjdk 11-latest (Ubuntu) 
 
-zulu openjdk 11-latest, scala 2.13.8 and sbt 1.6.1
+zulu openjdk 11-latest, scala 2.13.8 and sbt 1.6.2
 
 ## Versions
 
@@ -14,8 +14,8 @@ OpenJDK 64-Bit Server VM Zulu11.52+13-CA (build 11.0.13+8-LTS, mixed mode)
 ## Build and run the image
 
 ```
-docker build -t "zulu_openjdk:jdk11_sbt161" .
-docker run --entrypoint /bin/bash -it zulu_openjdk:jdk11_sbt161
+docker build -t "zulu_openjdk:jdk11_sbt162" .
+docker run --entrypoint /bin/bash -it zulu_openjdk:jdk11_sbt162
 ```
 
 ## Test the image locally against an actual sbt project
