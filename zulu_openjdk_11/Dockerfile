@@ -1,7 +1,7 @@
 FROM azul/zulu-openjdk:11
 
 ENV SCALA_VERSION 2.13.8
-ENV SBT_VERSION 1.6.1
+ENV SBT_VERSION 1.6.2
 
 WORKDIR /root
 
@@ -17,7 +17,8 @@ RUN \
     python3-pip \
     jq \
     postgresql-client \
-    openssl
+    openssl \
+    docker.io
 
 RUN \
   pip install awscli && \
