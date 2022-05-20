@@ -3,7 +3,7 @@ FROM azul/zulu-openjdk:11
 ENV SCALA_VERSION 2.13.8
 ENV SBT_VERSION 1.6.2
 
-WORKDIR /root
+WORKDIR /etc
 
 #SHELL ["/bin/bash", "-c"]
 
@@ -25,14 +25,14 @@ RUN \
   wget "https://downloads.typesafe.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz" && \
   tar -zxf "scala-${SCALA_VERSION}.tgz" && \
   rm scala-${SCALA_VERSION}.tgz && \
-  echo >> /root/.bashrc && \
-  echo 'export PATH=~/scala-$SCALA_VERSION/bin:$PATH' >> /root/.bashrc
+  echo >> /etc/bash.bashrc && \
+  echo 'export PATH=/etc/scala-$SCALA_VERSION/bin:$PATH' >> /etc/bash.bashrc
 
 RUN \
   wget https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz && \
   tar -zxf sbt-$SBT_VERSION.tgz && \
   rm sbt-$SBT_VERSION.tgz && \
-  echo >> /root/.bashrc && echo 'export PATH=/root/sbt/bin:$PATH' >> /root/.bashrc
+  echo >> /etc/bash.bashrc && echo 'export PATH=/etc/sbt/bin:$PATH' >> /etc/bash.bashrc
 
 COPY build.sbt .
 #ADD trip.tar.gz /root/trip
